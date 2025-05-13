@@ -16,7 +16,6 @@ export interface IHelloWorldWebPartProps {
     description: string;
     showWelcomeMessage: boolean;
 }
-
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
 
     private _isDarkTheme: boolean = false;
