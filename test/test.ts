@@ -1,11 +1,12 @@
-import {assert} from 'chai';
-import {describe, it} from 'mocha';
-import HelloWorldWebPart from '../src/webparts/helloWorld/HelloWorldWebPart';
+describe('SharePoint Web Part', () => {
+    beforeEach(() => {
+        // Handle authentication (you'll need to handle this based on your auth system)
+        cy.visit('https://yourtenant.sharepoint.com/sites/yoursite');
+    });
 
-describe('HelloWorldWebPart', () => {
-    it('should initialize showWelcomeMessage as true', async () => {
-        const webPart = new HelloWorldWebPart();
-        await webPart.onInit();
-        assert.isTrue(webPart['properties'].showWelcomeMessage, 'showWelcomeMessage should be initialized as true');
+    it('should load and display the web part correctly', () => {
+        cy.get('#yourWebPartId').should('be.visible');
+        cy.get('#yourWebPartId .title').should('contain.text', 'Expected Title');
+        // More assertions...
     });
 });
